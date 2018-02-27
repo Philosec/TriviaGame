@@ -1,0 +1,35 @@
+h2 {
+  margin-bottom: 45px;
+}
+
+.row .col-md-6 {
+  padding: 10px 10px;
+}
+
+.btn>h3 {
+  margin: 0;
+}
+
+.bg-game {
+  background: #d8d8d8;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .display-2 {
+    font-size: 4.0rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+}
