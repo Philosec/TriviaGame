@@ -7,55 +7,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Pompiere" rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css"/>
 </head>
 <body>
+
+<!-- HEADER -->
+
 <header class="container text-center">
   <div class="display-2">Bootstrap</div>
   <hr class="bg-light">
 </header>
 
+<!-- END HEADER -->
+
+<!-- MAIN SECTION -->
+
 <main class="container h-75">
+
+  <!-- TIME REMAINING -->
+
   <div class="row">
     <div class="col text-center">
       <h1 class="time-remaining-text">Time Remaining: <span class="time-remaining-number">10</span> Seconds</h1>
     </div>
   </div>
-  
+
+  <!-- END TIME REMAINING -->
+
+  <!-- QUESTION CARD -->
+
   <div class="row">
     <div class="col">
-      <div class="card">
-        <div class="container">
-          <div class="row">
+      <div class="card shadow">
+        <div class="container h-100">
+          <div class="row align-items-center h-50">
             <div class="col text-center">
-              <h2 class="question-text">Question Here</h2>
+              <h1 class="question-text">Question Here</h1>
             </div>
           </div>
-          
-          <div class="row">
+
+          <div class="row align-items-center h-50">
             <div class="col-md-6">
-              <button class="btn btn-block btn-info"><h3 class="answer-1">Answer 1</h3></button>
+              <button class="btn btn-block btn-info"><h2 class="answer answer-1">Answer 1</h2></button>
             </div>
             <div class="col-md-6">
-              <button class="btn btn-block btn-info"><h3 class="answer-2">Answer 2</h3></button>
+              <button class="btn btn-block btn-info"><h2 class="answer answer-2">Answer 2</h2></button>
             </div>
             <div class="col-md-6">
-              <button class="btn btn-block btn-info"><h3 class="answer-3">Answer 3</h3></button>
+              <button class="btn btn-block btn-info"><h2 class="answer answer-3">Answer 3</h2></button>
             </div>
             <div class="col-md-6">
-              <button class="btn btn-block btn-info"><h3 class="answer-4">Answer 4</h3></button>
+              <button class="btn btn-block btn-info"><h2 class="answer answer-4">Answer 4</h2></button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- END QUESTION CARD -->
 </main>
 
+<!-- END MAIN SECTION -->
+
 <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="assets/scripts/question_bank.js"></script>
 <script src="assets/scripts/game.js"></script>
+<script src="assets/scripts/application.js"></script>
 </body>
 </html>
+
+<!-- TODO: Remove bootstrap hard reference before final-->
