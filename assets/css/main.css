@@ -1,5 +1,19 @@
-h2 {
-  margin-bottom: 45px;
+/* Body */
+html,
+body {
+  background: linear-gradient(to left, #42275a, #734b6d, #42275a);
+  font-family: 'Pompiere', cursive;
+  color: #e7e7e7;
+}
+
+.time-remaining-text {
+  margin-bottom: 20px;
+}
+
+.question-text {
+  color: #000;
+  margin-top: 15px;
+  height: 200px;
 }
 
 .row .col-md-6 {
@@ -8,10 +22,6 @@ h2 {
 
 .btn>h3 {
   margin: 0;
-}
-
-.bg-game {
-  background: #d8d8d8;
 }
 
 html,
@@ -26,7 +36,6 @@ body {
 
   h2 {
     font-size: 1.8rem;
-    margin-bottom: 20px;
   }
 
   h3 {
