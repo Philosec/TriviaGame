@@ -122,6 +122,11 @@ svg {
 }
 
 @media (max-width: 768px) {
+  html,
+  body {
+    background: linear-gradient(to left, #42275a 0%, #734b6d 35%, #734b6d 65%, #42275a 100%);
+  }
+
   .display-2 {
     font-size: 4.0rem;
   }
