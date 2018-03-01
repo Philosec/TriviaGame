@@ -81,7 +81,7 @@ svg {
 }
 .path.check {
   stroke-dashoffset: -100;
-  -webkit-animation: dash-check 0.8s 0.8s ease-in-out forwards;
+  -webkit-animation: dash-check 0.8s 0.4s ease-in-out forwards;
   animation: dash-check 0.8s 0.4s ease-in-out forwards;
 }
 
