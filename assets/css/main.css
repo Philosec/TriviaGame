@@ -1,7 +1,7 @@
 /* Body */
 html,
 body {
-  background: linear-gradient(to left, #42275a, #734b6d, #42275a);
+  background: linear-gradient(to left, rgba(66, 39, 90, 0.90), rgba(115, 75, 109, 0.90), rgba(66, 39, 90, 0.90)), url('../images/universe.png') center center no-repeat;
   font-family: 'Pompiere', cursive;
   color: #e7e7e7;
   height: 100%;
