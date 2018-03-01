@@ -36,8 +36,8 @@ header>hr {
 /* Question */
 
 .question-box {
-  background: #e0e0e0;
-  margin: 10px 10px 0;
+  /*background: linear-gradient(to bottom, #e1e1e1 0%, #e1e1e1 90%, #ffffff 100%);*/
+  background: linear-gradient(to bottom, #d4d4d4, #e2e2e2, #d4d4d4);
 }
 
 .question-text {
@@ -71,18 +71,18 @@ svg {
   stroke-dashoffset: 0;
 }
 .path.circle {
-  -webkit-animation: dash 0.5s ease-in-out;
-  animation: dash 0.5s ease-in-out;
+  -webkit-animation: dash 0.8s ease-in-out;
+  animation: dash 0.8s ease-in-out;
 }
 .path.line {
   stroke-dashoffset: 1000;
-  -webkit-animation: dash 0.5s 0.2s ease-in-out forwards;
-  animation: dash 0.5s 0.2s ease-in-out forwards;
+  -webkit-animation: dash 0.8s 0.4s ease-in-out forwards;
+  animation: dash 0.8s 0.8s ease-in-out forwards;
 }
 .path.check {
   stroke-dashoffset: -100;
-  -webkit-animation: dash-check 0.5s 0.2s ease-in-out forwards;
-  animation: dash-check 0.5s 0.2s ease-in-out forwards;
+  -webkit-animation: dash-check 0.8s 0.8s ease-in-out forwards;
+  animation: dash-check 0.8s 0.4s ease-in-out forwards;
 }
 
 @-webkit-keyframes dash {
@@ -133,10 +133,6 @@ svg {
   .time-remaining-text,
   .question-text{
     font-size: 1.8rem;
-  }
-
-  .question-box {
-    margin: 5px 5px 0;
   }
 
   .btn-container {
