@@ -77,7 +77,7 @@ svg {
 .path.line {
   stroke-dashoffset: 1000;
   -webkit-animation: dash 0.8s 0.4s ease-in-out forwards;
-  animation: dash 0.8s 0.8s ease-in-out forwards;
+  animation: dash 0.8s 0.4s ease-in-out forwards;
 }
 .path.check {
   stroke-dashoffset: -100;
