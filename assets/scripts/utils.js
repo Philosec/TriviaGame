@@ -9,11 +9,3 @@ function shuffle (a) {
   }
   return a
 }
-
-/*
-* Image Preloader
-* https://stackoverflow.com/a/29339033/9045332
-* */
-function imgPreload () {
-
-}

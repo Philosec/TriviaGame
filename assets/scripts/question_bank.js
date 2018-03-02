@@ -22,9 +22,9 @@ QuestionBank.prototype.initQuestions = function () {
   this.questionArr.push(new Question('What type of galaxy is the most common in the universe', 'Elliptical', ['Spiral', 'Barred Spiral', 'Irregular'], 'assets/images/galaxy.png'))
   this.questionArr.push(new Question('How old is the universe in light years', '13.8 Billion', ['5.2 Billion', '2.4 Billion', '1.1 Billion'], 'assets/images/universe.png'))
 
-  this.questionArr.push(new Question('some string 1', '13.8 Billion', ['5.2 Billion', '2.4 Billion', '1.1 Billion'], 'assets/images/universe.png'))
-  this.questionArr.push(new Question('some string 2', '13.8 Billion', ['5.2 Billion', '2.4 Billion', '1.1 Billion'], 'assets/images/universe.png'))
-  this.questionArr.push(new Question('some string 3', '13.8 Billion', ['5.2 Billion', '2.4 Billion', '1.1 Billion'], 'assets/images/universe.png'))
+  // this.questionArr.push(new Question('some string 1', '13.8 Billion', ['5.2 Billion', '2.4 Billion', '1.1 Billion'], 'assets/images/universe.png'))
+  // this.questionArr.push(new Question('some string 2', '13.8 Billion', ['5.2 Billion', '2.4 Billion', '1.1 Billion'], 'assets/images/universe.png'))
+  // this.questionArr.push(new Question('some string 3', '13.8 Billion', ['5.2 Billion', '2.4 Billion', '1.1 Billion'], 'assets/images/universe.png'))
 }
 
 
@@ -33,23 +33,6 @@ QuestionBank.prototype.initQuestions = function () {
  */
 QuestionBank.prototype.shuffle = function () {
   shuffle(this.questionArr)
-}
-
-
-/**
- * Gets the correct and incorrect answers and returns them in a randomized order
- * @param {number} questionIndex - The question array index to get answers from
- * @returns {Array} - The array of answers
- */
-QuestionBank.prototype.getAnswersArr = function (questionIndex) {
-  let arr = []
-
-  arr.push(this.questionArr[questionIndex].answer)
-  for (let i = 0; i < this.questionArr[questionIndex].wrongAnswersArr.length; i++) {
-    arr.push(this.questionArr[questionIndex].wrongAnswersArr[i])
-  }
-
-  return arr
 }
 
 
@@ -77,4 +60,20 @@ function Question (question, answer, wrongAnswersArr, imgUrl) {
  */
 Question.prototype.isCorrectAnswer = function (answer) {
   return answer === this.answer;
+}
+
+
+/**
+ * Gets the correct and incorrect answers and returns them
+ * @returns {Array}
+ */
+Question.prototype.getAnswerArr = function () {
+  let arr = []
+
+  arr.push(this.answer)
+  for (let i = 0; i < this.wrongAnswersArr.length; i++) {
+    arr.push(this.wrongAnswersArr[i])
+  }
+
+  return arr
 }
