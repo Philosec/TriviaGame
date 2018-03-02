@@ -9,6 +9,8 @@ function Game () {
   this.questionTimer = null
   this.timeRemaining = 0
   this.waitingForTransition = false
+  this.audio = document.createElement('audio')
+  this.audio.src = 'assets/audio/mostAstounding.mp3'
 }
 
 Game.prototype.init = function () {
@@ -24,12 +26,30 @@ Game.prototype.init = function () {
   })
 
   $('.game-start-btn').on('click', (event) => {
+    if (!this.audio.muted) {
+      this.audio.play()
+    }
+
     $(event.currentTarget).fadeOut('fast', () => {
       $('.game-section').fadeIn({queue: false, duration: 400})
       $('.game-section').addClass('fadeInUp')
       this.beginQuestionTimer()
       this.transitionBackgroundImg()
     })
+  })
+
+  $('.audio-btn-on').on('click', () => {
+    this.audio.muted = true
+    this.audio.pause()
+    $('.audio-btn-off').removeClass('d-none')
+    $('.audio-btn-on').addClass('d-none')
+  })
+
+  $('.audio-btn-off').on('click', () => {
+    this.audio.muted = false
+    this.audio.play()
+    $('.audio-btn-on').removeClass('d-none')
+    $('.audio-btn-off').addClass('d-none')
   })
 
   $('.reset-game-btn').on('click', () => {
