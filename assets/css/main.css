@@ -1,19 +1,101 @@
 /* Body */
+
 html,
 body {
-  background: linear-gradient(to left, rgba(66, 39, 90, 0.90), rgba(115, 75, 109, 0.90), rgba(66, 39, 90, 0.90)), url('../images/universe.png') center center no-repeat;
+  /*background: linear-gradient(to left, rgba(66, 39, 90, 0.90), rgba(115, 75, 109, 0.90), rgba(66, 39, 90, 0.90)), url('../images/universe.png') center center no-repeat;*/
+  /*background: linear-gradient(to left, rgba(66, 39, 90, 0.90), rgba(115, 75, 109, 0.90), rgba(66, 39, 90, 0.90));*/
   font-family: 'Pompiere', cursive;
   color: #e7e7e7;
   height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.bg-img {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  z-index: -1;
+  position: absolute;
+}
+
+.overlay {
+  background: linear-gradient(to left, rgba(66, 39, 90, 0.90), rgba(115, 75, 109, 0.90), rgba(66, 39, 90, 0.90));
 }
 
 /* Header */
+
 .display-2 {
   padding-top: 20px;
 }
 
 header>hr {
   margin-bottom: 80px;
+}
+
+/* Game Start Button*/
+
+.game-start-btn {
+  position: relative;
+  background: none center center no-repeat;
+  background-size: cover;
+  border: 2px solid #a887ab;
+  text-transform: uppercase;
+  letter-spacing: .3rem;
+  padding: 20px 15px;
+  margin-top: 150px;
+  text-align: center;
+  max-width: 270px;
+  min-width: 200px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-transition: border 1s cubic-bezier(0.19,1,.22,1),color .6s cubic-bezier(0.19,1,.22,1);
+  transition: border 1s cubic-bezier(0.19,1,.22,1), color .6s cubic-bezier(0.19,1,.22,1), background 5s cubic-bezier(0.19,1,.22,1);
+}
+
+.game-start-btn h3 {
+  color: #3f2846;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+.game-start-btn .mask {
+  background: #fff;
+  background: rgba(255,255,255,0.5);
+}
+
+.game-start-btn .mask {
+  position: absolute;
+  display: block;
+  width: 200px;
+  height: 100px;
+  -webkit-transform: translate3d(-120%,-50px,0) rotate3d(0,0,1,45deg);
+  transform: translate3d(-120%,-50px,0) rotate3d(0,0,1,45deg);
+  -webkit-transition: all 1.1s cubic-bezier(0.19,1,.22,1);
+  transition: all 1.1s cubic-bezier(0.19,1,.22,1);
+}
+
+.game-start-btn:hover {
+  border-color: #fff;
+  /* box-shadow: 0 0 5px rgba(255,245,245,0.8); */
+  /* background-image: url('http://cuinine.com/img/codepen/savvy.jpg'); */
+}
+
+.game-start-btn:hover h3 {
+  color: #fff;
+}
+
+.game-start-btn:hover .mask {
+  background: #fff;
+  -webkit-transform: translate3d(120%,-100px,0) rotate3d(0,0,1,90deg);
+  transform: translate3d(120%,-100px,0) rotate3d(0,0,1,90deg);
+}
+
+/* Game Sections */
+
+.game-section {
+  display: none;
 }
 
 /* Time Remaining*/
@@ -121,10 +203,12 @@ svg {
   }
 }
 
+/* Media Queries*/
+
 @media (max-width: 768px) {
   html,
   body {
-    background: linear-gradient(to left, #42275a 0%, #734b6d 35%, #734b6d 65%, #42275a 100%);
+    background: linear-gradient(to left, #42275a 0%, #5a3654 35%, #5a3654 65%, #42275a 100%);
   }
 
   .display-2 {
@@ -155,60 +239,4 @@ svg {
   h3 {
     font-size: 1.5rem;
   }
-}
-
-.button {
-  position: relative;
-  background: none center center no-repeat;
-  background-size: cover;
-  border: 2px solid #a887ab;
-  text-transform: uppercase;
-  letter-spacing: .3rem;
-  padding: 20px 15px;
-  margin-top: 150px;
-  text-align: center;
-  max-width: 270px;
-  min-width: 200px;
-  cursor: pointer;
-  overflow: hidden;
-  -webkit-transition: border 1s cubic-bezier(0.19,1,.22,1),color .6s cubic-bezier(0.19,1,.22,1);
-  transition: border 1s cubic-bezier(0.19,1,.22,1), color .6s cubic-bezier(0.19,1,.22,1), background 5s cubic-bezier(0.19,1,.22,1);
-}
-
-.button h3 {
-  color: #3f2846;
-  text-decoration: none;
-  font-family: sans-serif;
-}
-
-.button .mask {
-  background: #fff;
-  background: rgba(255,255,255,0.5);
-}
-
-.button .mask {
-  position: absolute;
-  display: block;
-  width: 200px;
-  height: 100px;
-  -webkit-transform: translate3d(-120%,-50px,0) rotate3d(0,0,1,45deg);
-  transform: translate3d(-120%,-50px,0) rotate3d(0,0,1,45deg);
-  -webkit-transition: all 1.1s cubic-bezier(0.19,1,.22,1);
-  transition: all 1.1s cubic-bezier(0.19,1,.22,1);
-}
-
-.button:hover {
-  border-color: #fff;
-  /* box-shadow: 0 0 5px rgba(255,245,245,0.8); */
-  /* background-image: url('http://cuinine.com/img/codepen/savvy.jpg'); */
-}
-
-.button:hover h3 {
-  color: #fff;
-}
-
-.button:hover .mask {
-  background: #fff;
-  -webkit-transform: translate3d(120%,-100px,0) rotate3d(0,0,1,90deg);
-  transform: translate3d(120%,-100px,0) rotate3d(0,0,1,90deg);
 }
