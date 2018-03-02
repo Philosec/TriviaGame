@@ -77,7 +77,12 @@ Game.prototype.processGuess = function (guess) {
     this.highlightButtons()
   }
 
-  this.transitionQuestionCard()
+  if (this.isGameComplete()) {
+    this.transitionTallyCard()
+  }
+  else {
+    this.transitionQuestionCard()
+  }
 }
 
 
@@ -95,6 +100,11 @@ Game.prototype.beginQuestionTimer = function () {
       }
     }, 1000)
   }, 500)
+}
+
+
+Game.prototype.isGameComplete = function () {
+  return this.currentQuestionIndex === this.questions.length - 1;
 }
 
 
@@ -120,7 +130,6 @@ Game.prototype.transitionQuestionCard = function () {
   let $answerBtnArr = $('.answer')
 
   setTimeout(function () {
-    // $('body>.container').css('background', 'rgba(255, 255, 255, 0)')
     $($questionCard).removeClass('bounceInRight')
     $($questionCard).addClass('bounceOutLeft')
   }, 2000)
@@ -130,8 +139,8 @@ Game.prototype.transitionQuestionCard = function () {
     this.currentQuestionIndex++
     this.setupNextQuestion()
 
-    $('.check').addClass('d-none')
-    $('.cross').addClass('d-none')
+    $('.check', $questionCard).addClass('d-none')
+    $('.cross', $questionCard).addClass('d-none')
     $($questionText).removeClass('mt-2 mb-0')
 
     $.each($answerBtnArr, (index, btn) => {
@@ -145,6 +154,49 @@ Game.prototype.transitionQuestionCard = function () {
     this.transitionBackgroundImg()
 
     this.beginQuestionTimer()
+
+    this.waitingForTransition = false
+  }, 3000)
+}
+
+
+Game.prototype.transitionTallyCard = function () {
+  let $tallySection = $('.tally-section')
+  let $tallyCard = $('.tally-card')
+  let $tallyMsg = $('.tally-message')
+  let $questionCard = $('.question-card')
+
+  setTimeout(() => {
+    $($questionCard).removeClass('bounceInRight')
+    $($questionCard).addClass('bounceOutLeft')
+    $('.time-remaining-text').fadeOut('slow')
+  }, 2000)
+
+  setTimeout(() => {
+    if (this.numCorrect > this.numWrong) {
+      $($tallyMsg).text('Congratulations! You did great!')
+    }
+    else if (this.numCorrect === this.numWrong) {
+      $($tallyMsg).text('Not bad! Maybe You will be better next time!')
+    }
+    else if (this.numCorrect < this.numWrong) {
+      $($tallyMsg).text('Oh no! Looks like you need to learn more about space!')
+    }
+
+    $('.correct-count').text(this.numCorrect)
+    $('.wrong-count').text(this.numWrong)
+
+    $($tallySection).fadeIn({queue: false, duration: 400})
+    $($tallySection).addClass('fadeInUp')
+
+    setTimeout(() => {
+      $('.correct-tally', $tallyCard).removeClass('invisible')
+      $('.correct-tally', $tallyCard).addClass('bounceIn')
+      $('.wrong-tally', $tallyCard).removeClass('invisible')
+      $('.wrong-tally', $tallyCard).addClass('bounceIn')
+      $('.reset-game-btn', $tallyCard).removeClass('invisible')
+      $('.reset-game-btn', $tallyCard).addClass('fadeIn')
+    }, 900)
 
     this.waitingForTransition = false
   }, 3000)

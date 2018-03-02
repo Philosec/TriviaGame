@@ -64,17 +64,17 @@
 
 
           <!-- TALLY CARD -->
-          <div class="tally-section d-none">
+          <div class="tally-section animated">
             <div class="row">
               <div class=" col">
                 <div class="card tally-card shadow">
 
-                  <div class="card-header text-center tally-message" style="font-size: 4.0rem; color: black">
+                  <div class="card-header text-center tally-message">
                     Congratulations you did great!
                   </div>
 
                   <div class="row">
-                    <div class="col-4 animated invisible">
+                    <div class="col-6 col-md-4 animated correct-tally invisible">
                       <div class="row">
                         <div class="col">
                           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
@@ -95,8 +95,8 @@
                       </div>
                     </div>
 
-                    <div class="col-4 d-flex justify-content-around animated invisible">
-                      <button class="reset-game-btn my-auto">
+                    <div class="col col-md-4 order-1 order-md-0 d-flex justify-content-around">
+                      <button class="reset-game-btn my-3 my-md-auto animated invisible">
 
                         <h3 class="m-0"><b>Reset Game</b></h3>
 
@@ -105,7 +105,7 @@
                       </button>
                     </div>
 
-                    <div class="col-4 animated invisible">
+                    <div class="col-6 col-md-4 animated wrong-tally invisible">
                       <div class="row">
                         <div class="col">
                           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
@@ -275,11 +275,10 @@
 
 </html>
 
-<!-- TODO: Time questions -->
-<!-- TODO: Add questions to bank  -->
 <!-- TODO: Show and update tally card at end of game -->
 <!-- TODO: Implement reset button -->
 <!-- TODO: Play Neil Degrass Tyson During Game -->
 <!-- TODO: Add UI sound effects -->
+<!-- TODO: Add questions to bank  -->
 <!-- TODO: Remove bootstrap hard reference before final -->
 <!-- TODO: Remove animate hard reference before final -->
