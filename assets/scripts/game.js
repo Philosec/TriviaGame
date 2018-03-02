@@ -6,15 +6,16 @@ function Game () {
   this.currentQuestionIndex = 0
   this.numCorrect = 0
   this.numWrong = 0
+  this.questionTimer = null
+  this.timeRemaining = 0;
   this.waitingForTransition = false
 }
+
 
 Game.prototype.init = function () {
   this.setupNextQuestion()
 
   $(document).on('click', '.answer', (event) => {
-
-    console.log(this.waitingForTransition)
 
     var answer = $(event.currentTarget).text()
 
@@ -27,14 +28,17 @@ Game.prototype.init = function () {
     $(event.currentTarget).fadeOut('fast', () => {
       $('.game-section').fadeIn({queue: false, duration: 400})
       $('.game-section').addClass('fadeInUp')
+      this.beginQuestionTimer()
       this.transitionBackgroundImg()
     })
   })
 }
 
+
 Game.prototype.getCurrentQuestion = function () {
   return this.questions[this.currentQuestionIndex]
 }
+
 
 Game.prototype.setupNextQuestion = function () {
   let $card = $('.question-card')
@@ -51,43 +55,64 @@ Game.prototype.setupNextQuestion = function () {
   }
 }
 
+
 Game.prototype.processGuess = function (guess) {
+  //Clear the timer since a guess was made
+  clearInterval(this.questionTimer)
+
   this.waitingForTransition = true
-
-  var $answerButtonArr = $('.answer')
-
-  var highlightButtons = () => {
-    $.each($answerButtonArr, (index, btn) => {
-      if ($(btn).text() === this.getCurrentQuestion().answer) {
-        $(btn).removeClass('btn-info')
-        $(btn).addClass('btn-success')
-      }
-      else {
-        $(btn).removeClass('btn-info')
-        $(btn).addClass('btn-danger')
-      }
-    })
-  }
 
   if (this.getCurrentQuestion().isCorrectAnswer(guess)) {
     this.numCorrect++
 
     $('.check').removeClass('d-none')
     $('.question-text').addClass('mt-2 mb-0')
-    highlightButtons()
+    this.highlightButtons()
   }
   else {
     this.numWrong++
 
     $('.cross').removeClass('d-none')
     $('.question-text').addClass('mt-2 mb-0')
-    highlightButtons()
+    this.highlightButtons()
   }
-
-  console.log('correct: ' + this.numCorrect + ' wrong: ' + this.numWrong)
 
   this.transitionQuestionCard()
 }
+
+
+Game.prototype.beginQuestionTimer = function () {
+  this.timeRemaining = 10;
+  $('.time-remaining-number').text(this.timeRemaining);
+
+  setTimeout(() => {
+    this.questionTimer = setInterval(() => {
+      this.timeRemaining--
+      $('.time-remaining-number').text(this.timeRemaining);
+
+      if (this.timeRemaining === 0) {
+        this.processGuess('no guess')
+      }
+    }, 1000)
+  }, 500)
+}
+
+
+Game.prototype.highlightButtons = function () {
+  var $answerButtonArr = $('.answer')
+
+  $.each($answerButtonArr, (index, btn) => {
+    if ($(btn).text() === this.getCurrentQuestion().answer) {
+      $(btn).removeClass('btn-info')
+      $(btn).addClass('btn-success')
+    }
+    else {
+      $(btn).removeClass('btn-info')
+      $(btn).addClass('btn-danger')
+    }
+  })
+}
+
 
 Game.prototype.transitionQuestionCard = function () {
   let $questionCard = $('.question-card')
@@ -119,9 +144,12 @@ Game.prototype.transitionQuestionCard = function () {
     $($questionCard).addClass('bounceInRight')
     this.transitionBackgroundImg()
 
+    this.beginQuestionTimer()
+
     this.waitingForTransition = false
   }, 3000)
 }
+
 
 /**
  * Change the background to the current question's background
