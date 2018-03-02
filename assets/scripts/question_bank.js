@@ -22,7 +22,7 @@ QuestionBank.prototype.initQuestions = function () {
   this.questionArr.push(new Question('What type of galaxy is the most common in the universe', 'Elliptical', ['Spiral', 'Barred Spiral', 'Irregular'], 'assets/images/galaxy.png'))
   this.questionArr.push(new Question('How old is the universe in light years', '13.8 Billion', ['5.2 Billion', '2.4 Billion', '1.1 Billion'], 'assets/images/universe.png'))
 
-  // this.questionArr.push(new Question('some string 1', '13.8 Billion', ['5.2 Billion', '2.4 Billion', '1.1 Billion'], 'assets/images/universe.png'))
+  // this.questionArr.push(new Question('What is the mass of the Earth's sun', '13.8 Billion', ['5.2 Billion', '2.4 Billion', '1.1 Billion'], 'assets/images/universe.png'))
   // this.questionArr.push(new Question('some string 2', '13.8 Billion', ['5.2 Billion', '2.4 Billion', '1.1 Billion'], 'assets/images/universe.png'))
   // this.questionArr.push(new Question('some string 3', '13.8 Billion', ['5.2 Billion', '2.4 Billion', '1.1 Billion'], 'assets/images/universe.png'))
 }
