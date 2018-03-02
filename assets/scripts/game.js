@@ -6,7 +6,7 @@ function Game () {
   this.currentQuestionIndex = 0
   this.numCorrect = 0
   this.numWrong = 0
-  this.waitingForTransition = false;
+  this.waitingForTransition = false
 }
 
 Game.prototype.init = function () {
@@ -52,7 +52,7 @@ Game.prototype.setupNextQuestion = function () {
 }
 
 Game.prototype.processGuess = function (guess) {
-  this.waitingForTransition = true;
+  this.waitingForTransition = true
 
   var $answerButtonArr = $('.answer')
 
@@ -84,15 +84,15 @@ Game.prototype.processGuess = function (guess) {
     highlightButtons()
   }
 
-  console.log("correct: " + this.numCorrect + " wrong: " + this.numWrong)
+  console.log('correct: ' + this.numCorrect + ' wrong: ' + this.numWrong)
 
-  this.transitionQuestionCard();
+  this.transitionQuestionCard()
 }
 
 Game.prototype.transitionQuestionCard = function () {
   let $questionCard = $('.question-card')
   let $questionText = $('.question-text')
-  let $answerBtnArr = $('.answer');
+  let $answerBtnArr = $('.answer')
 
   setTimeout(function () {
     // $('body>.container').css('background', 'rgba(255, 255, 255, 0)')
@@ -119,7 +119,7 @@ Game.prototype.transitionQuestionCard = function () {
     $($questionCard).addClass('bounceInRight')
     this.transitionBackgroundImg()
 
-    this.waitingForTransition = false;
+    this.waitingForTransition = false
   }, 3000)
 }
 
