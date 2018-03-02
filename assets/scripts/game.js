@@ -210,12 +210,15 @@ Game.prototype.transitionTallyCard = function () {
   setTimeout(() => {
     if (this.numCorrect > this.numWrong) {
       $($tallyMsg).text('Congratulations! You did great!')
+      this.transitionBackgroundImg('https://media3.giphy.com/media/l1J3DaHzWEp2bTpYs/giphy.gif')
     }
     else if (this.numCorrect === this.numWrong) {
       $($tallyMsg).text('Not bad! Maybe You will be better next time!')
+      this.transitionBackgroundImg('https://media3.giphy.com/media/l1J3DaHzWEp2bTpYs/giphy.gif')
     }
     else if (this.numCorrect < this.numWrong) {
       $($tallyMsg).text('Oh no! Looks like you need to learn more about space!')
+      this.transitionBackgroundImg('https://media2.giphy.com/media/xUPGcyQ7Ozbmd8LCNy/giphy.gif')
     }
 
     $('.correct-count').text(this.numCorrect)
@@ -240,9 +243,14 @@ Game.prototype.transitionTallyCard = function () {
 /**
  * Change the background to the current question's background
  */
-Game.prototype.transitionBackgroundImg = function () {
+Game.prototype.transitionBackgroundImg = function (imgSrc) {
   $('.bg-img').fadeOut(500, () => {
-    $('.bg-img').html(this.getCurrentQuestion().img)
+    if (typeof imgSrc === 'undefined') {
+      $('.bg-img').html(this.getCurrentQuestion().img)
+    }
+    else {
+      $('.bg-img').html($('<img>').attr('src', imgSrc))
+    }
     $('.bg-img').fadeIn(500)
   })
 }
