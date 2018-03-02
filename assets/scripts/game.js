@@ -7,10 +7,9 @@ function Game () {
   this.numCorrect = 0
   this.numWrong = 0
   this.questionTimer = null
-  this.timeRemaining = 0;
+  this.timeRemaining = 0
   this.waitingForTransition = false
 }
-
 
 Game.prototype.init = function () {
   this.setupNextQuestion()
@@ -32,13 +31,55 @@ Game.prototype.init = function () {
       this.transitionBackgroundImg()
     })
   })
+
+  $('.reset-game-btn').on('click', () => {
+    this.reset()
+  })
 }
 
+Game.prototype.reset = function () {
+  this.questionBank = new QuestionBank()
+  this.questions = this.questionBank.questionArr
+  this.currentQuestionIndex = 0
+  this.numCorrect = 0
+  this.numWrong = 0
+  this.questionTimer = null
+  this.timeRemaining = 0
+
+  let $talleySection = $('.tally-section');
+  let $gameSection = $('.game-section')
+  let $questionCard = $('.question-card')
+  let $answerBtnArr = $('.answer')
+  let $questionText = $('.question-text')
+
+  $($talleySection).fadeOut('slow')
+  $($talleySection).removeClass('fadeInUp');
+  $($talleySection).addClass('bounceOutLeft');
+
+  this.setupNextQuestion()
+
+  setTimeout(() => {
+    $($questionCard).removeClass('bounceOutLeft')
+    $('.check', $questionCard).addClass('d-none')
+    $('.cross', $questionCard).addClass('d-none')
+    $($questionText).removeClass('mt-2 mb-0')
+    $.each($answerBtnArr, (index, btn) => {
+      $(btn).removeClass('btn-danger')
+      $(btn).removeClass('btn-success')
+      $(btn).addClass('btn-info')
+    })
+
+    $($gameSection).fadeIn({queue: false, duration: 400})
+    $($gameSection).removeClass('fadeInUp')
+    $($gameSection).addClass('fadeInUp')
+    this.beginQuestionTimer()
+    this.transitionBackgroundImg()
+  }, 2000)
+}
 
 Game.prototype.getCurrentQuestion = function () {
   return this.questions[this.currentQuestionIndex]
 }
-
 
 Game.prototype.setupNextQuestion = function () {
   let $card = $('.question-card')
@@ -54,7 +95,6 @@ Game.prototype.setupNextQuestion = function () {
     $($answerButtonsArr[i]).text(answers[i])
   }
 }
-
 
 Game.prototype.processGuess = function (guess) {
   //Clear the timer since a guess was made
@@ -85,15 +125,14 @@ Game.prototype.processGuess = function (guess) {
   }
 }
 
-
 Game.prototype.beginQuestionTimer = function () {
-  this.timeRemaining = 10;
-  $('.time-remaining-number').text(this.timeRemaining);
+  this.timeRemaining = 10
+  $('.time-remaining-number').text(this.timeRemaining)
 
   setTimeout(() => {
     this.questionTimer = setInterval(() => {
       this.timeRemaining--
-      $('.time-remaining-number').text(this.timeRemaining);
+      $('.time-remaining-number').text(this.timeRemaining)
 
       if (this.timeRemaining === 0) {
         this.processGuess('no guess')
@@ -102,11 +141,9 @@ Game.prototype.beginQuestionTimer = function () {
   }, 500)
 }
 
-
 Game.prototype.isGameComplete = function () {
-  return this.currentQuestionIndex === this.questions.length - 1;
+  return this.currentQuestionIndex === this.questions.length - 1
 }
-
 
 Game.prototype.highlightButtons = function () {
   var $answerButtonArr = $('.answer')
@@ -122,7 +159,6 @@ Game.prototype.highlightButtons = function () {
     }
   })
 }
-
 
 Game.prototype.transitionQuestionCard = function () {
   let $questionCard = $('.question-card')
@@ -159,7 +195,6 @@ Game.prototype.transitionQuestionCard = function () {
   }, 3000)
 }
 
-
 Game.prototype.transitionTallyCard = function () {
   let $tallySection = $('.tally-section')
   let $tallyCard = $('.tally-card')
@@ -169,7 +204,7 @@ Game.prototype.transitionTallyCard = function () {
   setTimeout(() => {
     $($questionCard).removeClass('bounceInRight')
     $($questionCard).addClass('bounceOutLeft')
-    $('.time-remaining-text').fadeOut('slow')
+    $('.game-section').fadeOut('slow')
   }, 2000)
 
   setTimeout(() => {
@@ -201,7 +236,6 @@ Game.prototype.transitionTallyCard = function () {
     this.waitingForTransition = false
   }, 3000)
 }
-
 
 /**
  * Change the background to the current question's background
