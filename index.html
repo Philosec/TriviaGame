@@ -20,7 +20,8 @@
 <div class="container-fluid h-100 p-0">
   
   <div class="bg-img">
-    <img src="assets/images/start-img.png" alt="background image">
+    <!--<img src="assets/images/start-img.png" alt="background image">-->
+    <img src="https://media3.giphy.com/media/l1J3DaHzWEp2bTpYs/giphy.gif" alt="background image" class="h-100 w-100">
   </div>
   
   <div class="background h-100 w-100 p-0">
@@ -45,7 +46,7 @@
   
           <!-- START GAME BUTTON -->
   
-          <div class="row">
+          <div class="row d-none">
             
             <div class="col d-flex justify-content-around">
               
@@ -60,6 +61,80 @@
             </div>
             
           </div>
+
+
+          <!-- TALLY CARD -->
+          <div class="tally-section">
+            <div class="row">
+              <div class=" col">
+                <div class="card tally-card">
+
+                  <div class="card-header text-center" style="font-size: 4.0rem; color: black">
+                    Congratulations you did great!
+                  </div>
+
+                  <div class="row">
+                    <div class="col-4 animated invisible">
+                      <div class="row">
+                        <div class="col">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+
+                            <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10"
+                                    cx="65.1" cy="65.1" r="62.1"></circle>
+
+                            <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6"
+                                      stroke-linecap="round" stroke-miterlimit="10"
+                                      points="100.2,40.2 51.5,88.8 29.8,67.5 "></polyline>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col text-center" style="font-size: 3.0rem; color: green">
+                          12
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-4 d-flex justify-content-around animated invisible">
+                      <button class="reset-game-btn my-auto">
+
+                        <h3 class="m-0"><b>Reset Game</b></h3>
+
+                        <div class="mask"></div>
+
+                      </button>
+                    </div>
+
+                    <div class="col-4 animated invisible">
+                      <div class="row">
+                        <div class="col">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+
+                            <circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10"
+                                    cx="65.1" cy="65.1" r="62.1"></circle>
+
+                            <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round"
+                                  stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"></line>
+
+                            <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round"
+                                  stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"></line>
+
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col text-center" style="font-size: 3.0rem; color: red">
+                          4
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
   
           <!-- GAME SECTION -->
   
@@ -200,7 +275,11 @@
 
 </html>
 
-<!-- TODO: Remove bootstrap hard reference before final-->
-<!-- TODO: Remove animate hard reference before final-->
-<!-- TODO: Rename title-->
-<!-- TODO: Preload images -->
+<!-- TODO: Create tally card -->
+<!-- TODO: Time questions -->
+<!-- TODO: Show tally card at end of game -->
+<!-- TODO: Show reset button at end of game -->
+<!-- TODO: Play Neil Degrass Tyson During Game -->
+<!-- TODO: Add UI sound effects -->
+<!-- TODO: Remove bootstrap hard reference before final -->
+<!-- TODO: Remove animate hard reference before final -->

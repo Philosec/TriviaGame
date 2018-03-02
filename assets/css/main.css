@@ -36,7 +36,8 @@ header>hr {
 
 /* Game Start Button*/
 
-.game-start-btn {
+.game-start-btn,
+.reset-game-btn {
   position: relative;
   background: none center center no-repeat;
   background-size: cover;
@@ -60,12 +61,24 @@ header>hr {
   font-family: sans-serif;
 }
 
+.reset-game-btn h3 {
+  color: #3f2846;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
 .game-start-btn .mask {
   background: #fff;
   background: rgba(255,255,255,0.5);
 }
 
-.game-start-btn .mask {
+.reset-game-btn .mask {
+  background: #000;
+  background: rgba(255,255,255,0.5);
+}
+
+.game-start-btn .mask,
+.reset-game-btn .mask{
   position: absolute;
   display: block;
   width: 200px;
@@ -82,12 +95,28 @@ header>hr {
   /* background-image: url('http://cuinine.com/img/codepen/savvy.jpg'); */
 }
 
+.reset-game-btn:hover {
+  border-color: #000;
+  /* box-shadow: 0 0 5px rgba(255,245,245,0.8); */
+  /* background-image: url('http://cuinine.com/img/codepen/savvy.jpg'); */
+}
+
 .game-start-btn:hover h3 {
   color: #fff;
 }
 
+.reset-game-btn:hover h3 {
+  color: #000;
+}
+
 .game-start-btn:hover .mask {
   background: #fff;
+  -webkit-transform: translate3d(120%,-100px,0) rotate3d(0,0,1,90deg);
+  transform: translate3d(120%,-100px,0) rotate3d(0,0,1,90deg);
+}
+
+.reset-game-btn:hover .mask {
+  background: #000;
   -webkit-transform: translate3d(120%,-100px,0) rotate3d(0,0,1,90deg);
   transform: translate3d(120%,-100px,0) rotate3d(0,0,1,90deg);
 }
