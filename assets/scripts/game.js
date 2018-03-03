@@ -67,6 +67,7 @@ Game.prototype.reset = function () {
   this.timeRemaining = 0
 
   let $talleySection = $('.tally-section');
+  let $tallyCard = $('.tally-card')
   let $gameSection = $('.game-section')
   let $questionCard = $('.question-card')
   let $answerBtnArr = $('.answer')
@@ -79,6 +80,13 @@ Game.prototype.reset = function () {
   this.setupNextQuestion()
 
   setTimeout(() => {
+    $('.correct-tally', $tallyCard).addClass('invisible')
+    $('.correct-tally', $tallyCard).removeClass('bounceIn')
+    $('.wrong-tally', $tallyCard).addClass('invisible')
+    $('.wrong-tally', $tallyCard).removeClass('bounceIn')
+    $('.reset-game-btn', $tallyCard).addClass('invisible')
+    $('.reset-game-btn', $tallyCard).removeClass('fadeIn')
+
     $($questionCard).removeClass('bounceOutLeft')
     $('.check', $questionCard).addClass('d-none')
     $('.cross', $questionCard).addClass('d-none')
@@ -94,7 +102,7 @@ Game.prototype.reset = function () {
     $($gameSection).addClass('fadeInUp')
     this.beginQuestionTimer()
     this.transitionBackgroundImg()
-  }, 2000)
+  }, 1000)
 }
 
 Game.prototype.getCurrentQuestion = function () {
@@ -254,7 +262,7 @@ Game.prototype.transitionTallyCard = function () {
       $('.wrong-tally', $tallyCard).addClass('bounceIn')
       $('.reset-game-btn', $tallyCard).removeClass('invisible')
       $('.reset-game-btn', $tallyCard).addClass('fadeIn')
-    }, 900)
+    }, 1200)
 
     this.waitingForTransition = false
   }, 3000)
