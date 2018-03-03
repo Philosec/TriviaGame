@@ -12,4 +12,4 @@ responsive and can be played on both mobile and desktop.
 - Animate.css
 
 ## Preview
-![Image of Desktop Layout](assets/images/site.PNG)
+![Image of Desktop Layout](assets/images/site.png)
