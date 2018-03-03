@@ -97,6 +97,7 @@ Game.prototype.reset = function () {
       $(btn).addClass('btn-info')
     })
 
+    $('.game-section').removeClass('animated')
     $($gameSection).fadeIn({queue: false, duration: 400})
     $($gameSection).removeClass('fadeInUp')
     $($gameSection).addClass('fadeInUp')
@@ -232,7 +233,8 @@ Game.prototype.transitionTallyCard = function () {
   setTimeout(() => {
     $($questionCard).removeClass('bounceInRight')
     $($questionCard).addClass('bounceOutLeft')
-    $('.game-section').fadeOut('slow')
+    $('.game-section').removeClass('animated')
+    $('.game-section').fadeOut({queue: false, duration: 1000})
   }, 2000)
 
   setTimeout(() => {
