@@ -19,8 +19,8 @@ function QuestionBank () {
  * Fills the {@link QuestionBank#questionArr} with questions
  */
 QuestionBank.prototype.initQuestions = function () {
-  this.questionArr.push(new Question('What type of galaxy is the most common', 'Elliptical', ['Spiral', 'Barred Spiral', 'Irregular'], 'assets/images/galaxy.png'))
-  this.questionArr.push(new Question('How old is the universe in light years', '13.8 Billion', ['5.2 Billion', '2.4 Billion', '1.1 Billion'], 'assets/images/universe.png'))
+  this.questionArr.push(new Question('What galaxy type is the most common', 'Elliptical', ['Spiral', 'Barred Spiral', 'Irregular'], 'assets/images/galaxy.png'))
+  this.questionArr.push(new Question('Universe age in light years', '13.8 Billion', ['5.2 Billion', '2.4 Billion', '1.1 Billion'], 'assets/images/universe.png'))
   this.questionArr.push(new Question('What is the mass of the Earth\'s sun', '2 Quintillion kg', ['1 Quintillion kg', '1 Billion kg', '2 Quadrillion kg'], 'assets/images/sun.png'))
   this.questionArr.push(new Question('Distance from the earth to moon', '238,900 mi', ['420,000 mi', '383,000 mi', '180,000 mi'], 'assets/images/moon.png'))
   this.questionArr.push(new Question('Number of planets in our solar system', '8', ['7', '9', '10'], 'assets/images/solar-system.png'))
