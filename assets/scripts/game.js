@@ -11,6 +11,7 @@ function Game () {
   this.waitingForTransition = false
   this.audio = document.createElement('audio')
   this.audio.src = 'assets/audio/mostAstounding.mp3'
+  this.audio.volume = 0.5
 }
 
 Game.prototype.init = function () {
